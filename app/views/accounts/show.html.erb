@@ -1,2 +1,25 @@
-<h1>Accounts#show</h1>
-<p>Find me in app/views/accounts/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Twitter:</b>
+  <%= @account.twitter_id %>
+</p>
+
+<p>
+  <b>Twitter token:</b>
+  <%= @account.twitter_token %>
+</p>
+
+<p>
+  <b>Twitter secret:</b>
+  <%= @account.twitter_secret %>
+</p>
+
+<p>
+  <b>Last login:</b>
+  <%= @account.last_login %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>
