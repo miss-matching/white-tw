@@ -1,0 +1,9 @@
+<h1>Sessions#new</h1>
+<p>Find me in app/views/sessions/new.html.erb</p>
+<%= form_tag(sessions_path) do %>
+  <%= submit_tag('twitterでログイン') %>
+<% end %>
+<%= link_to 'にせほボタンを始める', "/auth/twitter" %>
+
+
+<%= @time_line.to_s %>
