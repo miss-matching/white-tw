@@ -1,4 +1,7 @@
 WhiteTw::Application.routes.draw do
+  resources :accounts
+
+
   root :to => 'sessions#new'
 
   match "/auth/:provider/callback" => "sessions#create"
