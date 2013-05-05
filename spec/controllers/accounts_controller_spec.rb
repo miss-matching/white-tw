@@ -28,13 +28,17 @@ describe AccountsController do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # AccountsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { { :account_id => @account.id } }
+
+  before do
+    @account = Account.create! valid_attributes
+  end
 
   describe "GET index" do
     it "assigns all accounts as @accounts" do
-      account = Account.create! valid_attributes
+      #account = Account.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:accounts).should eq([account])
+      assigns(:accounts).should eq([@account])
     end
   end
 

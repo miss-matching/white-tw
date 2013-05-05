@@ -4,8 +4,8 @@ describe TweetsController do
 
   describe "GET 'destroy'" do
     it "returns http success" do
-      get 'destroy'
-      response.should be_success
+      delete :destroy, :id => 1
+      expect(response).to redirect_to(root_url)
     end
   end
 
