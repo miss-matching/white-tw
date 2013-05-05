@@ -1,15 +1,18 @@
 WhiteTw::Application.routes.draw do
-  resources :accounts
 
+  resources :accounts
 
   root :to => 'sessions#new'
 
   match "/auth/:provider/callback" => "sessions#create"
 
-  resources :accounts, :only =>["show"]  do
+  resources :accounts, :only => ["show"]  do
   end
 
-  resources :sessions, :only =>["new","create"] do
+  resources :sessions, :only => ["new", "create"] do
+  end
+
+  resources :tweets, :only => ["destroy"] do
   end
 
   # The priority is based upon order of creation:
