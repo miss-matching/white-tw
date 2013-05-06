@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     @current_account ||= session[:account_id] && Account.find_by_id(session[:account_id])
   end
 
-  def logged_in? 
+  def logged_in?
     !!current_account
   end
 
