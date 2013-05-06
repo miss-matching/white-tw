@@ -20,6 +20,11 @@
   <%= @account.last_login %>
 </p>
 
+<%= form_for @account,
+    :url => account_tweets_path(:account_id => @account.id),
+    :method => :delete do |f| %>
+  <%= f.submit 'ツイート削除' %>
+<% end %>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>

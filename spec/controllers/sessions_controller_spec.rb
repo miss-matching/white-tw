@@ -11,8 +11,9 @@ describe SessionsController do
 
   describe "GET 'create'" do
     it "returns http success" do
+      @request.env["omniauth.auth"] = { "uid" => 1, "credentials" => {} }
       get 'create'
-      response.should be_success
+      expect(response).to redirect_to("/accounts/1")
     end
   end
 

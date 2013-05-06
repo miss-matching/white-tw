@@ -16,4 +16,13 @@ describe "accounts/show" do
     rendered.should match(/Twitter Token/)
     rendered.should match(/Twitter Secret/)
   end
+
+  it "renders `delete tweets` button" do
+    render
+    expect(rendered).to have_selector("form",
+      :action => account_tweets_path(:account_id => @account.id)
+    ) do |form|
+      expect(form).to have_selector("input", :type => "submit")
+    end
+  end
 end

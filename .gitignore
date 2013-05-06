@@ -18,5 +18,5 @@
 /vendor/bundle
 
 # We don't want to expose thise files to general public  
-/config/initializers/omnioauth.rb
+/config/initializers/constants.rb
 
