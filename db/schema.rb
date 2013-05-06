@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504081934) do
+ActiveRecord::Schema.define(:version => 20130505052556) do
 
   create_table "accounts", :force => true do |t|
     t.string   "twitter_id"
@@ -21,5 +21,14 @@ ActiveRecord::Schema.define(:version => 20130504081934) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  create_table "ng_words", :force => true do |t|
+    t.integer  "account_id", :null => false
+    t.string   "word"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ng_words", ["account_id"], :name => "index_ng_words_on_account_id"
 
 end

@@ -1,6 +1,5 @@
+# -*- coding: utf-8 -*-
 WhiteTw::Application.routes.draw do
-
-  resources :accounts
 
   root :to => 'sessions#new'
 
@@ -15,6 +14,10 @@ WhiteTw::Application.routes.draw do
   end
 
   resources :sessions, :only => ["new", "create"] do
+  end
+
+  # NOTE:ネストにはしない->あとからいろいろありそう
+  resources :ng_words, :except =>["index","show"]do
   end
 
   # The priority is based upon order of creation:

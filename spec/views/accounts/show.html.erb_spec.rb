@@ -1,3 +1,4 @@
+#coding: utf-8
 require 'spec_helper'
 
 describe "accounts/show" do
@@ -5,24 +6,27 @@ describe "accounts/show" do
     @account = assign(:account, stub_model(Account,
       :twitter_id => "Twitter",
       :twitter_token => "Twitter Token",
-      :twitter_secret => "Twitter Secret"
+      :twitter_secret => "Twitter Secret",
     ))
+    @account.ng_words = [
+      assign(:ng_word, stub_model(NgWord, :word => "死んでしまえ"))
+    ]
+
   end
 
   it "renders attributes in <p>" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Twitter/)
-    rendered.should match(/Twitter Token/)
-    rendered.should match(/Twitter Secret/)
   end
-
-  it "renders `delete tweets` button" do
+  it "renders ng_words attributes and linke to basic CURD"  do
     render
-    expect(rendered).to have_selector("form",
-      :action => account_tweets_path(:account_id => @account.id)
-    ) do |form|
-      expect(form).to have_selector("input", :type => "submit")
+    @account.ng_words.each do |ng_word|
+      expect(rendered).to match(/死んでしまえ/)
+      expect(rendered).to have_selector( "a", href: new_ng_word_path )
+      expect(rendered).to have_selector( "a", href: edit_ng_word_path( ng_word ) )
+      expect(rendered).to have_selector( "a", href: ng_word_path( ng_word ), "data-method" => "delete"   )
     end
   end
+
 end
