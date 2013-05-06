@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     # end
 
     if @account.save
-      session[:acciount_id] = @account.id
+      session[:account_id] = @account.id
       redirect_to @account
     else
       flash[:error] = "ごめんなさい"
