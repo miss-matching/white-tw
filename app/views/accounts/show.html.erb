@@ -6,20 +6,25 @@
 </p>
 
 <p>
-  <b>Twitter token:</b>
-  <%= @account.twitter_token %>
-</p>
-
-<p>
-  <b>Twitter secret:</b>
-  <%= @account.twitter_secret %>
-</p>
-
-<p>
   <b>Last login:</b>
   <%= @account.last_login %>
 </p>
 
+<p><b>NG-WORDS:</b></p>
+<table>
+  <tr>
+    <th>Word</th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<% @account.ng_words.each do |ng_word| %>
+  <tr>
+    <td><%= ng_word.word %></td>
+    <td><%= link_to 'Edit', edit_ng_word_path(ng_word) %></td>
+    <td><%= link_to 'Destroy', ng_word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New Ng word', new_ng_word_path %>
