@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   def new
     if logged_in?
       redirect_to @current_account
+    else
+      session.delete(:account_id) 
     end
   end
 
@@ -30,6 +32,7 @@ class SessionsController < ApplicationController
       session[:account_id] = @account.id
       redirect_to @account
     else
+      session.delete(:account_id) 
       flash[:error] = "ごめんなさい"
       render "new"
     end
@@ -37,7 +40,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to '/', :notice => "認証を外しました"
+    session.delete(:account_id) 
+    redirect_to :root, :notice => "認証を外しました"
   end
 end

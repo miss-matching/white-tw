@@ -15,6 +15,8 @@ WhiteTw::Application.routes.draw do
 
   resources :sessions, :only => ["new", "create"] do
   end
+  resource :session, :only => ["destroy"] do
+  end
 
   # NOTE:ネストにはしない->あとからいろいろありそう
   resources :ng_words, :except =>["index","show"]do
