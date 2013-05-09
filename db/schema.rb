@@ -11,19 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505052556) do
+ActiveRecord::Schema.define(:version => 20130509103857) do
 
   create_table "accounts", :force => true do |t|
     t.string   "twitter_id"
     t.string   "twitter_token"
     t.string   "twitter_secret"
     t.datetime "last_login"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "twitter_image_url"
+    t.string   "twitter_screen_name"
   end
 
   create_table "ng_words", :force => true do |t|
-    t.integer  "account_id", :null => false
+    t.integer  "account_id"
     t.string   "word"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

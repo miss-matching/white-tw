@@ -16,17 +16,9 @@ class SessionsController < ApplicationController
 
     unless @account.present?
       @account = Account.new
-      @account.twitter_id = auth["uid"]
     end
 
-    @account.twitter_secret = auth['credentials']['secret']
-    @account.twitter_token = auth['credentials']['token']
-    @account.last_login = Date.today.to_time.to_datetime
-   
-    # Twitter.configure do |config|
-    #   config.oauth_token = auth['credentials']['token']
-    #   config.oauth_token_secret = auth['credentials']['secret']
-    # end
+    @account.assign_twitter_info( auth )
 
     if @account.save
       session[:account_id] = @account.id
