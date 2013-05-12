@@ -75,8 +75,6 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
-    libnotify (0.8.0)
-      ffi (>= 1.0.11)
     libv8 (3.11.8.17)
     listen (1.1.0)
       rb-fsevent (>= 0.9.3)
@@ -200,12 +198,10 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   jquery-rails
-  libnotify
   omniauth-twitter
   rails (= 3.2.13)
   rails3-generators
   rb-fsevent
-  rb-inotify
   rspec-rails
   sass-rails (~> 3.2.3)
   spork
