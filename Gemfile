@@ -15,6 +15,14 @@ group :test,:development do
   gem 'factory_girl_rails'
   gem 'rails3-generators'
   gem 'webrat'
+
+  gem 'spork'
+  gem 'rb-fsevent'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'growl'
+  gem 'libnotify'
+  gem 'rb-inotify'
 end
 
 # Gems used only for assets and not required
