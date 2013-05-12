@@ -11,4 +11,10 @@ require 'spec_helper'
 #   end
 # end
 describe AccountsHelper do
+  # ここまで書かなくていいよね(w
+  describe "prefixe_screen_name" do
+    it "returns @screen_name" do
+      expect( prefix_screen_name( 'hoge' ) ).to eq( '@hoge' )
+    end
+  end
 end

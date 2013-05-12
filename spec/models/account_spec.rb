@@ -47,14 +47,6 @@ describe Account do
     end
   end
 
-  # ここまで書かなくていいよね(w
-  describe "screen_name_prefixed" do
-    it "returns @screen_name" do
-      account = Account.new
-      account.twitter_screen_name = 'screen_name'
-      expect( account.screen_name_prefixed ).to eq( '@' + account.twitter_screen_name )
-    end
-  end
 
 
 end

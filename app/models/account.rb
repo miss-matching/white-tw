@@ -3,11 +3,6 @@ class Account < ActiveRecord::Base
   has_many :ng_words, :dependent => :delete_all
   attr_accessible :last_login, :twitter_id, :twitter_secret, :twitter_token
 
-  # NOTE: ActiveDecorator的な何かを使った方がいいかも。検討。
-  def screen_name_prefixed
-    self.twitter_screen_name.nil? ? nil : '@' + self.twitter_screen_name
-  end
-
   def assign_twitter_info( auth )
 
     self.twitter_id = auth['uid']
