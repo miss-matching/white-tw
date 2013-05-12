@@ -11,22 +11,25 @@ class SessionsController < ApplicationController
   end
 
   def create
+    
     auth = request.env["omniauth.auth"]
     @account = Account.find_by_twitter_id(auth["uid"])
 
     unless @account.present?
       @account = Account.new
-      @account.twitter_id = auth["uid"]
     end
 
+    @account.twitter_id = auth['uid']
     @account.twitter_secret = auth['credentials']['secret']
     @account.twitter_token = auth['credentials']['token']
-    @account.last_login = Date.today.to_time.to_datetime
-   
-    # Twitter.configure do |config|
-    #   config.oauth_token = auth['credentials']['token']
-    #   config.oauth_token_secret = auth['credentials']['secret']
-    # end
+    
+    twitter_user = Twitter::Client.new(
+      :oauth_token => auth['credentials']['token'],
+      :oauth_token_secret => auth['credentials']['secret']
+    ).user
+
+    @account.twitter_image_url = twitter_user.profile_image_url
+    @account.twitter_screen_name = twitter_user.screen_name
 
     if @account.save
       session[:account_id] = @account.id
@@ -43,4 +46,5 @@ class SessionsController < ApplicationController
     session.delete(:account_id) 
     redirect_to :root, :notice => "認証を外しました"
   end
+
 end
