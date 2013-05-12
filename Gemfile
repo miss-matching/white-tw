@@ -20,9 +20,10 @@ group :test,:development do
   gem 'rb-fsevent'
   gem 'guard-spork'
   gem 'guard-rspec'
-  gem 'growl'
-  gem 'libnotify'
-  gem 'rb-inotify'
+  gem 'growl' if /darwin/ =~ RUBY_PLATFORM
+  gem 'libnotify' if /linux/ =~ RUBY_PLATFORM
+  gem 'rb-inotify' if /linux/ =~ RUBY_PLATFORM
+
 end
 
 # Gems used only for assets and not required
