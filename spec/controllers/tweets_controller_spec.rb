@@ -11,7 +11,7 @@ describe TweetsController do
 
     let(:account) do
       account = FactoryGirl.create(:account)
-      account.stub(:ng_words).and_return(["NG"])
+      account.stub(:ng_words).and_return([word: "NG"])
       account
     end
 
