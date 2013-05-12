@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
     )
 
     tweets = twitter_client.user_timeline.select do |status|
-      account.ng_words.any? { |word| /#{word}/ =~ status[:text] }
+      account.ng_words.any? { |word| /#{word[:word]}/ =~ status[:text] }
     end
     twitter_client.status_destroy *tweets.map { |tweet| tweet[:id] }
     redirect_to root_url
