@@ -5,7 +5,7 @@ class NgWordsController < ApplicationController
   def index
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: NgWord.all }
+      format.json { render json: @current_account.ng_words }
     end
   end
 
