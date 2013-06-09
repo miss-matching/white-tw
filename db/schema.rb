@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130509103857) do
   end
 
   create_table "ng_words", :force => true do |t|
-    t.integer  "account_id", :null => false
+    t.integer  "account_id"
     t.string   "word"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
