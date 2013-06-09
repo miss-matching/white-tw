@@ -12,10 +12,7 @@ class NgWords.ListView extends Backbone.View
     "submit form.new-ng-word": "create"
 
   initialize: () ->
-    @collection = new NgWords.Collection
     @collection.on "add", @renderOne
-    @collection.on "reset", @render
-    @collection.fetch reset: true
 
   render: () =>
     @$el.html(@template())

@@ -13,6 +13,7 @@
 //= require jquery/jquery
 //= require underscore/underscore
 //= require backbone/backbone
-//= require util
 //= require app-init
+//= require util
+//= require_tree .
 
