@@ -1,3 +1,16 @@
 // Place all the styles related to the ng_words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.ng-word{
+  .word{
+    .display{ display: inline; }
+    input[name=word]{ display: none; }
+  }
+  .word.edit{
+    .display{ display: none; }
+    input[name=word]{ display: inline; }
+  }
+}
+
+
+
