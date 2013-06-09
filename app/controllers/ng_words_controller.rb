@@ -1,5 +1,14 @@
 class NgWordsController < ApplicationController
 
+  # GET /ng_words
+  # GET /ng_words/index.json
+  def index
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: NgWord.all }
+    end
+  end
+
   # GET /ng_words/new
   # GET /ng_words/new.json
   def new

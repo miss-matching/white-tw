@@ -20,3 +20,4 @@
 # We don't want to expose thise files to general public  
 /config/initializers/constants.rb
 
+vendor/assets/components
