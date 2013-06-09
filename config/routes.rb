@@ -19,7 +19,7 @@ WhiteTw::Application.routes.draw do
   end
 
   # NOTE:ネストにはしない->あとからいろいろありそう
-  resources :ng_words, :except =>["index","show"]do
+  resources :ng_words, :except =>["show"]do
   end
 
   # The priority is based upon order of creation:
