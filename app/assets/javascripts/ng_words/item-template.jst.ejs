@@ -1,7 +1,12 @@
-<div class="word"><%- word %></div>
+<div class="word">
+  <span class="display">
+  <%- word %>
+  </span> 
+  <input type="text" name="word" value="<%- word %>">
+</div>
 <ul class="actions">
   <li class="edit">
-    <a href="#">Edit</a>
+    <a href="#" class="btn">Edit</a>
   </li>
   <li class="destroy">
     <a href="#">Destroy</a>

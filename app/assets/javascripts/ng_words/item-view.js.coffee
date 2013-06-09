@@ -9,16 +9,31 @@ class NgWords.ItemView extends Backbone.View
   className: "ng-word"
 
   events:
-    "click .edit": "edit"
     "click .destroy": "destroy"
+    "click .edit": "edit"
+    "dblclick .display": "edit"
+    "keydown [name=word]": "commit"
+    "focusout [name=word]": "render"
 
-  render: () ->
-    @$el.html(@template @options.model.toJSON())
+  initialize: ->
+    @model.on "change", @render
+
+  render: =>
+    @$el.html(@template @model.toJSON())
     @
+
+  commit: (e) ->
+    return if( e.keyCode? and e.keyCode isnt 13) or ( e.which? and e.which isnt 13)
+    e.preventDefault()
+    @model.set( word : $(e.target).val() )
+    @model.save()
+
 
   edit: (e) ->
     e.preventDefault()
-    alert "edit #{@options.model.get('word')}"
+    @$('.word').addClass('edit')
+
+
 
   destroy: (e) ->
     e.preventDefault()
