@@ -15,5 +15,6 @@
 //= require backbone/backbone
 //= require app-init
 //= require util
-//= require_tree .
+//= require ng_words/collection
+//= require ng_words/list-view
 
