@@ -6,6 +6,8 @@ NgWords = util.namespace "NgWords"
 
 class NgWords.ItemView extends Backbone.View
 
+  tagName: "li"
+
   className: "ng-word"
 
   events:
@@ -28,12 +30,9 @@ class NgWords.ItemView extends Backbone.View
     @model.set( word : $(e.target).val() )
     @model.save()
 
-
   edit: (e) ->
     e.preventDefault()
     @$('.word').addClass('edit')
-
-
 
   destroy: (e) ->
     e.preventDefault()
