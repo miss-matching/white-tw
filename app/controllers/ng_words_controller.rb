@@ -50,7 +50,7 @@ class NgWordsController < ApplicationController
     respond_to do |format|
       if @ng_word.update_attributes(params[:ng_word])
         format.html { redirect_to @current_account, notice: 'Ng word was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: @ng_word }
       else
         format.html { render action: "edit" }
         format.json { render json: @ng_word.errors, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ class NgWordsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @current_account }
-      format.json { head :no_content }
+      format.json { render json: @ng_word }
     end
   end
 end
