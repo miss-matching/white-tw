@@ -13,6 +13,8 @@
 //= require jquery/jquery
 //= require underscore/underscore
 //= require backbone/backbone
-//= require util
 //= require app-init
+//= require util
+//= require ng_words/collection
+//= require ng_words/list-view
 

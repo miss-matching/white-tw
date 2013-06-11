@@ -37,3 +37,13 @@
 </table>
 
 <%= link_to 'New Ng word', new_ng_word_path %>
+
+<%= javascript_tag do %>
+  $(function() {
+    // http://backbonejs.org/#FAQ-bootstrap
+    var ngWords = new this.WT.NgWords.Collection();
+    ngWords.reset(<%= @account.ng_words.to_json.html_safe %>);
+    (new this.WT.NgWords.ListView({ el: "#ng-words", collection: ngWords })).render();
+  }.call(this));
+<% end %>
+
