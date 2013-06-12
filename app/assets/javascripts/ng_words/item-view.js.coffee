@@ -19,6 +19,7 @@ class NgWords.ItemView extends Backbone.View
 
   initialize: ->
     @model.on "change", @render
+    @model.on "destroy", @remove, @
 
   render: =>
     @$el.html(@template @model.toJSON())
@@ -37,7 +38,6 @@ class NgWords.ItemView extends Backbone.View
   destroy: (e) ->
     e.preventDefault()
     @model.destroy(wait: true)
-    @remove( @model )
     
 
   template: JST["ng_words/item-template"]
