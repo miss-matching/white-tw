@@ -1,5 +1,4 @@
 #= require ./item-template
-#= require ./action-register
 
 util = @WT.util
 
@@ -9,12 +8,7 @@ NgWords = util.namespace "NgWords"
 class NgWords.ItemView extends Backbone.View
 
   tagName: "li"
-
   className: "ng-word"
-
-  waiting: false
-  waitingTimer: null
-  destroyActionRegister: null
 
   events:
     "click .destroy": "registerConfirmedClick"
@@ -65,16 +59,18 @@ class NgWords.ItemView extends Backbone.View
 
 class NgWords.CancelableTimerAction
 
-  waiting: false
-  waitingTimer: null
-
   constructor: ( @timeMergin, @action ) ->
+    @waiting = false
+    @waitingTimer = null
 
   start: ->
     @waiting = true
     @waitingTimer = setTimeout( @action, @timeMergin )
+    @
 
   cancel:  ->
     @waiting = false
     clearTimeout( @waitingTimer )
     @waitingTimer = null
+    @
+
